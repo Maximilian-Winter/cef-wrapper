@@ -24,19 +24,55 @@ public:
 
     for (int i = 0; i < m_PythonBindings.size(); ++i) {
       if (name == m_PythonBindings[i].MessageTopic) {
-        // Create the message object.
-        CefRefPtr<CefProcessMessage> msg =
-            CefProcessMessage::Create("call-python-api-no-args");
 
-        // Retrieve the argument list object.
-        CefRefPtr<CefListValue> args = msg->GetArgumentList();
+        CefRefPtr<CefProcessMessage> javascript_binding_message =
+            CefProcessMessage::Create("javascript-python-binding");
 
-        // Populate the argument values.
-        args->SetString(0, m_PythonBindings[i].MessageTopic);
-        // Send the process message to the main frame in the render process.
-        // Use PID_BROWSER instead when sending a message to the m_Browser
-        // process.
-        m_Browser->GetMainFrame()->SendProcessMessage(PID_BROWSER, msg);
+        CefRefPtr<CefListValue> javascript_binding_message_args =
+            javascript_binding_message->GetArgumentList();
+
+        javascript_binding_message_args->SetString(0, m_PythonBindings[i].MessageTopic);
+
+        CefRefPtr<CefListValue> javascript_args = CefListValue::Create();
+        CefRefPtr<CefListValue> javascript_arg_types = CefListValue::Create();
+
+        int jsArgsIndex = 0;
+
+        for (const auto & argument : arguments)
+        {
+          if(argument->IsInt())
+          {
+            int value = argument->GetIntValue();
+            javascript_args->SetInt(jsArgsIndex, value);
+            javascript_arg_types->SetString(jsArgsIndex, "int");
+            jsArgsIndex++;
+          }
+          else if(argument->IsBool())
+          {
+            bool value = argument->GetBoolValue();
+            javascript_args->SetBool(jsArgsIndex, value);
+            javascript_arg_types->SetString(jsArgsIndex, "bool");
+            jsArgsIndex++;
+          }
+          else if(argument->IsDouble())
+          {
+            double value = argument->GetDoubleValue();
+            javascript_args->SetDouble(jsArgsIndex, value);
+            javascript_arg_types->SetString(jsArgsIndex, "double");
+            jsArgsIndex++;
+          }
+          else if(argument->IsString())
+          {
+            std::string value = argument->GetStringValue();
+            javascript_args->SetString(jsArgsIndex, value);
+            javascript_arg_types->SetString(jsArgsIndex, "string");
+            jsArgsIndex++;
+          }
+        }
+        javascript_binding_message_args->SetList(1, javascript_arg_types);
+        javascript_binding_message_args->SetList(2, javascript_args);
+        m_Browser->GetMainFrame()->SendProcessMessage(PID_BROWSER, javascript_binding_message);
+
         return true;
       }
     }

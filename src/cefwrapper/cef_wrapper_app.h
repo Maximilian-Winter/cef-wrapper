@@ -7,10 +7,11 @@
 #include "javascript_binding.h"
 #include "javascript_bindings_handler.h"
 
-class CefWrapperApp : public CefApp{
- public:
-   CefWrapperApp(std::string start_url, std::vector<JavascriptBinding> javascript_bindings, std::vector<JavascriptPythonBinding> javascript_python_bindings);
-
+class CefWrapperApp : public CefApp {
+public:
+  CefWrapperApp(
+      std::string start_url, std::vector<JavascriptBinding> javascript_bindings,
+      std::vector<JavascriptPythonBinding> javascript_python_bindings);
 
   CefRefPtr<CefBrowser> GetBrowser();
 
@@ -27,12 +28,14 @@ class CefWrapperApp : public CefApp{
       CefRefPtr<CefCommandLine> command_line) override;
 
   void LoadUrl(std::string url);
+  void
+  OnRegisterCustomSchemes(CefRawPtr<CefSchemeRegistrar> registrar) override;
 
 private:
-    std::vector<JavascriptBinding> m_Javascript_Bindings;
-    std::vector<JavascriptPythonBinding> m_Javascript_Python_Bindings;
+  std::vector<JavascriptBinding> m_Javascript_Bindings;
+  std::vector<JavascriptPythonBinding> m_Javascript_Python_Bindings;
 
-    IMPLEMENT_REFCOUNTING(CefWrapperApp);
+  IMPLEMENT_REFCOUNTING(CefWrapperApp);
 };
 
-#endif  // CEF_WRAPPER_APP_H_
+#endif // CEF_WRAPPER_APP_H_

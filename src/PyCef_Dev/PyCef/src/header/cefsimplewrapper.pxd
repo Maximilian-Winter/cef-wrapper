@@ -5,9 +5,25 @@ from libcpp.string cimport string
 from libcpp cimport bool
 
 
+
+
+
+cdef extern from "src/cefwrapper/javascript_binding.h":
+    cdef cppclass CefValueWrapper:
+        CefValueWrapper() except +
+        bool IsInt()
+        bool IsBool()
+        bool IsDouble()
+        bool IsString()
+        int GetInt()
+        bool GetBool()
+        double GetDouble()
+        string GetString()
+
+
 cdef extern from "src/cefwrapper/javascript_binding.h":
     ctypedef void (*js_python_callback_object_ptr);
-    ctypedef void (*js_python_bindings_handler_function_ptr)(void* python_callback_object );
+    ctypedef void (*js_python_bindings_handler_function_ptr)(void* python_callback_object, int size, CefValueWrapper* args );
     ctypedef void (*js_binding_function_ptr)();
 
 # Declare the class with cdef

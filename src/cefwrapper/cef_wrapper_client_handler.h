@@ -96,6 +96,10 @@ public:
                                 CefRefPtr<CefFrame> frame,
                                 CefProcessId source_process,
                                 CefRefPtr<CefProcessMessage> message) override;
+  void OnLoadingStateChange(CefRefPtr<CefBrowser> browser, bool isLoading,
+                            bool canGoBack, bool canGoForward) override;
+
+
 private:
   // Platform-specific implementation.
   void PlatformTitleChange(CefRefPtr<CefBrowser> browser,

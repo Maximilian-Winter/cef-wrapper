@@ -7,6 +7,7 @@
 #include "include/cef_browser.h"
 #include "include/cef_command_line.h"
 
+#include "include/cef_origin_whitelist.h"
 #include "javascript_binding.h"
 #include "javascript_bindings_handler.h"
 
@@ -17,7 +18,7 @@ CefRefPtr<CefBrowser> CefWrapperApp::GetBrowser()
 
 void CefWrapperApp::OnBeforeCommandLineProcessing(
     const CefString &process_type, CefRefPtr<CefCommandLine> command_line) {
-  CefApp::OnBeforeCommandLineProcessing(process_type, command_line);
+  //command_line->AppendSwitch("allow-file-access-from-files");
 }
 
 CefWrapperApp::CefWrapperApp(std::string start_url, std::vector<JavascriptBinding> javascript_bindings, std::vector<JavascriptPythonBinding> javascript_python_bindings) {
@@ -30,4 +31,8 @@ CefWrapperApp::CefWrapperApp(std::string start_url, std::vector<JavascriptBindin
 
 void CefWrapperApp::LoadUrl(std::string url) {
   CefWrapperBrowserProcessHandler::LoadUrl(url);
+}
+void CefWrapperApp::OnRegisterCustomSchemes(
+    CefRawPtr<CefSchemeRegistrar> registrar) {
+  //registrar->AddCustomScheme("zen", CEF_SCHEME_OPTION_STANDARD | CEF_SCHEME_OPTION_CORS_ENABLED);
 }

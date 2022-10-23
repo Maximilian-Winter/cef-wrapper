@@ -18,7 +18,7 @@ set(CEFSIMPLE_SRCS
         cef_wrapper_render_process_handler.h
         library.cpp
         library.h
-        cef_wrapper_browser_process_handler.h cef_wrapper_browser_process_handler.cc javascript_python_binding_handler.h)
+        cef_wrapper_browser_process_handler.h cef_wrapper_browser_process_handler.cc javascript_python_binding_handler.h custom_protocol_scheme_handler.h custom_protocol_scheme_handler.cc file_util.h)
 set(CEFSIMPLE_SRCS_WINDOWS
         cef_wrapper_client_handler_win.cc
   )

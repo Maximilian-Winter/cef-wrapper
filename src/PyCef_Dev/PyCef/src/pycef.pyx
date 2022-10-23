@@ -1,9 +1,74 @@
 # distutils: language=c++
 # cython: language_level=3
-from PyCef.src.header.cefsimplewrapper cimport CefWrapper
+from PyCef.src.header.cefsimplewrapper cimport CefWrapper, CefValueWrapper
 
-cdef inline void callback( void *f):
-    (<object>f)()
+#from .header.cefsimplewrapper cimport CefWrapper, CefValueWrapper
+
+cdef class PyCefValueWrapper:
+    cdef CefValueWrapper cef_value_wrapper;
+
+    def __init__(self):
+        self.cef_value_wrapper = CefValueWrapper()
+
+    def is_int(self):
+        return self.cef_value_wrapper.IsInt()
+
+    def is_bool(self):
+        return self.cef_value_wrapper.IsBool()
+
+    def is_double(self):
+        return self.cef_value_wrapper.IsDouble()
+
+    def is_string(self):
+        return self.cef_value_wrapper.IsString()
+
+    def get_int(self):
+        return self.cef_value_wrapper.GetInt()
+
+    def get_bool(self):
+        return self.cef_value_wrapper.GetBool()
+
+    def get_double(self):
+        return self.cef_value_wrapper.GetDouble()
+
+    def get_string(self):
+        return self.cef_value_wrapper.GetString()
+
+#cdef inline void callback( void *f, int size, void *args):
+#    cdef CefValueWrapper* fargs = <CefValueWrapper*>args
+#    arg_list = []
+#    print(size)
+#    for i in range(size):
+#        v2 = PyCefValueWrapper()
+#        v2.cef_value_wrapper = fargs[0]
+#        if v2.is_int():
+#            arg_list.append(v2.get_int())
+#        if v2.is_bool():
+#            arg_list.append(v2.get_bool())
+#        if v2.is_string():
+#            arg_list.append(v2.get_string())
+#        if v2.is_double():
+#            arg_list.append(v2.get_double())
+#    (<object>f)(arg_list)
+
+cdef inline void callback( void *f, int size, CefValueWrapper* args):
+    cdef CefValueWrapper* fargs = args
+    arg_list = []
+    cdef PyCefValueWrapper v2
+    for i in range(size):
+        v2 = PyCefValueWrapper()
+        v2.cef_value_wrapper = fargs[0]
+        if v2.is_int():
+            arg_list.append(v2.get_int())
+        if v2.is_bool():
+            arg_list.append(v2.get_bool())
+        if v2.is_string():
+            arg_list.append(bytes.decode(v2.get_string(), "utf-8"))
+        if v2.is_double():
+            arg_list.append(v2.get_double())
+        fargs += 1
+
+    (<object>f)(arg_list)
 
 cdef class PyCef:
     cdef CefWrapper cef_simple_wrapper;
@@ -40,3 +105,4 @@ cdef class PyCef:
 
     def load_url(self, url: str):
         self.cef_simple_wrapper.LoadUrl(url.encode("utf-8"))
+

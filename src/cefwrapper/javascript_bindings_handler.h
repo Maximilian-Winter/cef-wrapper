@@ -13,7 +13,7 @@ class JavascriptBindingsHandler : public CefV8Handler {
 
 public:
   JavascriptBindingsHandler(std::vector<JavascriptBinding> callbacks, CefRefPtr<CefBrowser> browser) {
-    JsCallbacks = callbacks;
+    m_Javascript_Bindings = callbacks;
     m_Browser = browser;
   };
   virtual bool Execute(const CefString &name, CefRefPtr<CefV8Value> object,
@@ -21,31 +21,60 @@ public:
                        CefRefPtr<CefV8Value> &retval,
                        CefString &exception) override {
 
-    for (int i = 0; i < JsCallbacks.size(); ++i) {
-      if (name == JsCallbacks[i].functionName) {
-        // Create the message object.
-        CefRefPtr<CefProcessMessage> msg =
-            CefProcessMessage::Create("call-api-no-args");
+    for (int i = 0; i < m_Javascript_Bindings.size(); ++i) {
+      if (name == m_Javascript_Bindings[i].functionName) {
 
-        // Retrieve the argument list object.
-        CefRefPtr<CefListValue> args = msg->GetArgumentList();
+        CefRefPtr<CefProcessMessage> javascript_binding_message =
+            CefProcessMessage::Create("javascript-binding");
 
-        // Populate the argument values.
-        args->SetString(0, JsCallbacks[i].functionName);
-        // Send the process message to the main frame in the render process.
-        // Use PID_BROWSER instead when sending a message to the m_Browser
-        // process.
-        m_Browser->GetMainFrame()->SendProcessMessage(PID_BROWSER, msg);
+        CefRefPtr<CefListValue> javascript_binding_message_args =
+            javascript_binding_message->GetArgumentList();
+
+        javascript_binding_message_args->SetString(0, m_Javascript_Bindings[i].functionName);
+
+        CefRefPtr<CefListValue> javascript_args = CefListValue::Create();
+
+        int jsArgsIndex = 0;
+
+        for (const auto & argument : arguments)
+        {
+          if(argument->IsInt())
+          {
+            int value = argument->GetIntValue();
+            javascript_args->SetInt(jsArgsIndex, value);
+            jsArgsIndex++;
+          }
+          else if(argument->IsBool())
+          {
+            bool value = argument->GetBoolValue();
+            javascript_args->SetBool(jsArgsIndex, value);
+            jsArgsIndex++;
+          }
+          else if(argument->IsDouble())
+          {
+            double value = argument->GetDoubleValue();
+            javascript_args->SetDouble(jsArgsIndex, value);
+            jsArgsIndex++;
+          }
+          else if(argument->IsString())
+          {
+            std::string value = argument->GetStringValue();
+            javascript_args->SetString(jsArgsIndex, value);
+            jsArgsIndex++;
+          }
+        }
+        javascript_binding_message_args->SetList(1, javascript_args);
+        m_Browser->GetMainFrame()->SendProcessMessage(PID_BROWSER, javascript_binding_message);
         return true;
       }
     }
 
-    // Function does not exist.
+
     return false;
   }
   CefRefPtr<CefBrowser> m_Browser;
-  std::vector<JavascriptBinding> JsCallbacks;
-  // Provide the reference counting implementation for this class.
+  std::vector<JavascriptBinding> m_Javascript_Bindings;
+
   IMPLEMENT_REFCOUNTING(JavascriptBindingsHandler);
 };
 #endif // JAVASCRIPT_BINDINGS_HANDLER_H

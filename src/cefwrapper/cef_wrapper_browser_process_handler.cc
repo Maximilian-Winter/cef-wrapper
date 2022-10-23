@@ -1,9 +1,9 @@
 
 
-
 #include "cef_wrapper_browser_process_handler.h"
 #include "cef_wrapper_client_handler.h"
 #include "cef_wrapper_render_process_handler.h"
+#include "custom_protocol_scheme_handler.h"
 #include "javascript_binding.h"
 
 CefWrapperBrowserProcessHandler::CefWrapperBrowserProcessHandler() = default;
@@ -41,6 +41,8 @@ void CefWrapperBrowserProcessHandler::OnContextInitialized()
       CefCommandLine::GetGlobalCommandLine();
 
   bool use_views = command_line->HasSwitch("use-views");
+
+  //RegisterSchemeHandlerFactory();
 
   CefRefPtr<CefWrapperClientHandler> handler(new CefWrapperClientHandler(use_views, m_JavascriptBindings, m_JavascriptPythonBindings));
   SimpleRenderProcessHandler::getInstance()->SetJavascriptBindings(

@@ -8,7 +8,7 @@
 
 
 std::string ExePath() {
-  std::filesystem::path cwd = std::filesystem::current_path() / "cefsubprocess" / "cefsubprocess.exe";   //"C:\\Dev\\cef-binaries\\cef_binary_106.0.27+g20ed841+chromium-106.0.5249.103_windows64\\cmake-build-debug-visual-studio\\src\\cefsubprocess\\Debug\\cefsubprocess.exe";
+  std::filesystem::path cwd = std::filesystem::current_path() /"cefsubprocess" / "cefsubprocess.exe";   //"C:\\Dev\\cef-binaries\\cef_binary_106.0.27+g20ed841+chromium-106.0.5249.103_windows64\\cmake-build-debug-visual-studio\\src\\cefsubprocess\\Debug\\cefsubprocess.exe";
   return cwd.string();
 }
 
@@ -24,11 +24,13 @@ void CefWrapper::InitCefSimple(std::string start_url) {
 
   CefMainArgs main_args;
 
-  m_App = CefRefPtr<CefWrapperApp>(new CefWrapperApp( start_url, m_Callbacks, m_NativePythonApi));
+  m_App = CefRefPtr<CefWrapperApp>(new CefWrapperApp( start_url, m_Javascript_Bindings, m_Javascript_Python_Bindings));
   CefExecuteProcess(main_args, m_App.get(), sandbox_info);
 
   CefRefPtr<CefCommandLine> command_line = CefCommandLine::CreateCommandLine();
   command_line->InitFromString(::GetCommandLineW());
+
+
 
   CefSettings settings;
 
@@ -77,14 +79,14 @@ bool CefWrapper::IsReadyToExecuteJavascript() {
 
 void CefWrapper::AddJavascriptBinding(std::string name, js_binding_function_ptr jsNativeApiFunctionPtr)
 {
-  m_Callbacks.push_back(JavascriptBinding(name, jsNativeApiFunctionPtr));
+  m_Javascript_Bindings.push_back(JavascriptBinding(name, jsNativeApiFunctionPtr));
 }
 CefWrapper::CefWrapper() {}
 void CefWrapper::AddJavascriptPythonBinding(
     std::string name,
     js_python_bindings_handler_function_ptr python_bindings_handler,
     js_python_callback_object_ptr python_callback_object) {
-  m_NativePythonApi.push_back(
+  m_Javascript_Python_Bindings.push_back(
       JavascriptPythonBinding(python_bindings_handler, name, python_callback_object));
 }
 void CefWrapper::SetCustomCefSubprocessPath(std::string cefsub_path) {

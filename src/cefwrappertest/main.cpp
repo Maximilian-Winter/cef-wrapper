@@ -5,12 +5,11 @@
 #include "../cefwrapper/library.h"
 #include <iostream>
 
-bool can_run_javascript = false;
 
-void testfunc(void* data)
+
+void testfunc(void* data, int size, CefValueWrapper* args)
 {
-  can_run_javascript = true;
-  std::cout << "I FOUGHT THE LAW AND I WON!" << std::endl;
+  std::cout << "I FOUGHT THE LAW AND I WON!"<< size << std::endl;
 }
 
 int main()
@@ -24,12 +23,9 @@ int main()
   {
 	  Sleep(10);
 	  cefSimpleWrapper.DoCefMessageLoopWork();
-          if(can_run_javascript)
-          {
-            std::stringstream ss;
-            ss << "window.state.setTicker(" << counter++ << ")";
-            cefSimpleWrapper.ExecuteJavascript(ss.str());
-          }
+          std::stringstream ss;
+          ss << "window.state.setTicker(" << counter++ << ")";
+          cefSimpleWrapper.ExecuteJavascript(ss.str());
   }
 
   //cefSimpleWrapper.ShutdownCefSimple();

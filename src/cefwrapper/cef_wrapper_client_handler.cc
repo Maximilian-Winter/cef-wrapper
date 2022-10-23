@@ -263,7 +263,6 @@ void CefWrapperClientHandler::OnLoadEnd(CefRefPtr<CefBrowser> browser,
 {
   std::string code = "const event = new Event('cefready'); window.dispatchEvent(event);";
   frame->ExecuteJavaScript(code, frame->GetURL(), 0);
-  m_IsReadyToExecuteJs = true;
 }
 bool CefWrapperClientHandler::IsReadyToExecuteJs() { return m_IsReadyToExecuteJs; }
 void CefWrapperClientHandler::OnLoadStart(
@@ -275,7 +274,7 @@ bool CefWrapperClientHandler::OnProcessMessageReceived(
     CefRefPtr<CefBrowser> browser, CefRefPtr<CefFrame> frame,
     CefProcessId source_process, CefRefPtr<CefProcessMessage> message) {
   const std::string& message_name = message->GetName();
-  if (message_name == "call-api-no-args")
+  if (message_name == "javascript-binding")
   {
     CefRefPtr<CefListValue> argList = message->GetArgumentList();
     std::string funcName = argList->GetString(0);
@@ -289,20 +288,64 @@ bool CefWrapperClientHandler::OnProcessMessageReceived(
     }
     return true;
   }
-  else if (message_name == "call-python-api-no-args")
+  else if (message_name == "javascript-python-binding")
   {
     CefRefPtr<CefListValue> argList = message->GetArgumentList();
     std::string funcName = argList->GetString(0);
+    CefRefPtr<CefListValue> javascript_arg_types = argList->GetList(1);
+    CefRefPtr<CefListValue> javascript_args = argList->GetList(2);
+   // void* args = nullptr;
+    int argsSize = (int)javascript_args->GetSize();
+
+    auto* valueWrapper = new CefValueWrapper[argsSize];
+    for (int i = 0; i < javascript_args->GetSize(); ++i) {
+      std::string type = javascript_arg_types->GetString(i);
+
+      if(type == "int")
+      {
+        valueWrapper->Type = 0;
+        valueWrapper->IntValue = javascript_args->GetInt(i);
+      }
+      else if(type == "bool")
+      {
+        valueWrapper->Type = 1;
+        valueWrapper->BoolValue = javascript_args->GetBool(i);
+      }
+      else if(type == "double")
+      {
+        valueWrapper->Type = 2;
+        valueWrapper->DoubleValue = javascript_args->GetDouble(i);
+      }
+      else if(type == "string")
+      {
+        valueWrapper->Type = 3;
+        valueWrapper->StringValue = javascript_args->GetString(i);
+      }
+      ++valueWrapper;
+    }
+
+    valueWrapper -= argsSize;
 
     for (int i = 0; i < m_JavascriptPythonBindings.size(); ++i)
     {
       if(m_JavascriptPythonBindings[i].MessageTopic == funcName)
       {
-        m_JavascriptPythonBindings[i].CallHandler();
+        m_JavascriptPythonBindings[i].CallHandler(argsSize, valueWrapper);
       }
     }
     return true;
   }
   return false;
 }
-
+void CefWrapperClientHandler::OnLoadingStateChange(
+    CefRefPtr<CefBrowser> browser, bool isLoading, bool canGoBack,
+    bool canGoForward) {
+  if(!isLoading)
+  {
+    m_IsReadyToExecuteJs = true;
+  }
+  else
+  {
+    m_IsReadyToExecuteJs = false;
+  }
+}

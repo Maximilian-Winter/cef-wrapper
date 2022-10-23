@@ -36,8 +36,8 @@ private:
     bool m_UseCustomCefCachePath = false;
     std::string m_CustomCefCachePath = "";
 
-    std::vector<JavascriptBinding>m_Callbacks;
-    std::vector<JavascriptPythonBinding> m_NativePythonApi;
+    std::vector<JavascriptBinding> m_Javascript_Bindings;
+    std::vector<JavascriptPythonBinding> m_Javascript_Python_Bindings;
 }
 ;
 
