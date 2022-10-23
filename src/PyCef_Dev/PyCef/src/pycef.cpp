@@ -1327,7 +1327,7 @@ struct __pyx_obj_5PyCef_3src_PyCefValueWrapper {
 };
 
 
-/* "PyCef/src/pycef.pyx":73
+/* "PyCef/src/pycef.pyx":57
  *     (<object>f)(arg_list)
  * 
  * cdef class PyCef:             # <<<<<<<<<<<<<<
@@ -3423,7 +3423,7 @@ static PyObject *__pyx_pf_5PyCef_3src_17PyCefValueWrapper_16get_string(struct __
  *     def get_string(self):
  *         return self.cef_value_wrapper.GetString()             # <<<<<<<<<<<<<<
  * 
- * #cdef inline void callback( void *f, int size, void *args):
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_convert_PyBytes_string_to_py_std__in_string(__pyx_v_self->cef_value_wrapper.GetString()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 35, __pyx_L1_error)
@@ -3636,8 +3636,8 @@ static PyObject *__pyx_pf_5PyCef_3src_17PyCefValueWrapper_20__setstate_cython__(
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":54
- * #    (<object>f)(arg_list)
+/* "PyCef/src/pycef.pyx":38
+ * 
  * 
  * cdef inline void callback( void *f, int size, CefValueWrapper* args):             # <<<<<<<<<<<<<<
  *     cdef CefValueWrapper* fargs = args
@@ -3666,7 +3666,7 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("callback", 0);
 
-  /* "PyCef/src/pycef.pyx":55
+  /* "PyCef/src/pycef.pyx":39
  * 
  * cdef inline void callback( void *f, int size, CefValueWrapper* args):
  *     cdef CefValueWrapper* fargs = args             # <<<<<<<<<<<<<<
@@ -3675,19 +3675,19 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
  */
   __pyx_v_fargs = __pyx_v_args;
 
-  /* "PyCef/src/pycef.pyx":56
+  /* "PyCef/src/pycef.pyx":40
  * cdef inline void callback( void *f, int size, CefValueWrapper* args):
  *     cdef CefValueWrapper* fargs = args
  *     arg_list = []             # <<<<<<<<<<<<<<
  *     cdef PyCefValueWrapper v2
  *     for i in range(size):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 56, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_arg_list = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "PyCef/src/pycef.pyx":58
+  /* "PyCef/src/pycef.pyx":42
  *     arg_list = []
  *     cdef PyCefValueWrapper v2
  *     for i in range(size):             # <<<<<<<<<<<<<<
@@ -3699,19 +3699,19 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "PyCef/src/pycef.pyx":59
+    /* "PyCef/src/pycef.pyx":43
  *     cdef PyCefValueWrapper v2
  *     for i in range(size):
  *         v2 = PyCefValueWrapper()             # <<<<<<<<<<<<<<
  *         v2.cef_value_wrapper = fargs[0]
  *         if v2.is_int():
  */
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5PyCef_3src_PyCefValueWrapper)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 59, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(((PyObject *)__pyx_ptype_5PyCef_3src_PyCefValueWrapper)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 43, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_v2, ((struct __pyx_obj_5PyCef_3src_PyCefValueWrapper *)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "PyCef/src/pycef.pyx":60
+    /* "PyCef/src/pycef.pyx":44
  *     for i in range(size):
  *         v2 = PyCefValueWrapper()
  *         v2.cef_value_wrapper = fargs[0]             # <<<<<<<<<<<<<<
@@ -3720,14 +3720,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
  */
     __pyx_v_v2->cef_value_wrapper = (__pyx_v_fargs[0]);
 
-    /* "PyCef/src/pycef.pyx":61
+    /* "PyCef/src/pycef.pyx":45
  *         v2 = PyCefValueWrapper()
  *         v2.cef_value_wrapper = fargs[0]
  *         if v2.is_int():             # <<<<<<<<<<<<<<
  *             arg_list.append(v2.get_int())
  *         if v2.is_bool():
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 61, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 45, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     __pyx_t_7 = 0;
@@ -3745,22 +3745,22 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
       PyObject *__pyx_callargs[1] = {__pyx_t_6, };
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 61, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 45, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 61, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 45, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "PyCef/src/pycef.pyx":62
+      /* "PyCef/src/pycef.pyx":46
  *         v2.cef_value_wrapper = fargs[0]
  *         if v2.is_int():
  *             arg_list.append(v2.get_int())             # <<<<<<<<<<<<<<
  *         if v2.is_bool():
  *             arg_list.append(v2.get_bool())
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 62, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 46, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       __pyx_t_7 = 0;
@@ -3778,14 +3778,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
         PyObject *__pyx_callargs[1] = {__pyx_t_6, };
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 62, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 46, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 62, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 46, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "PyCef/src/pycef.pyx":61
+      /* "PyCef/src/pycef.pyx":45
  *         v2 = PyCefValueWrapper()
  *         v2.cef_value_wrapper = fargs[0]
  *         if v2.is_int():             # <<<<<<<<<<<<<<
@@ -3794,14 +3794,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
  */
     }
 
-    /* "PyCef/src/pycef.pyx":63
+    /* "PyCef/src/pycef.pyx":47
  *         if v2.is_int():
  *             arg_list.append(v2.get_int())
  *         if v2.is_bool():             # <<<<<<<<<<<<<<
  *             arg_list.append(v2.get_bool())
  *         if v2.is_string():
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_bool); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 63, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_bool); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 47, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     __pyx_t_7 = 0;
@@ -3819,22 +3819,22 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
       PyObject *__pyx_callargs[1] = {__pyx_t_6, };
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 63, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 63, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 47, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "PyCef/src/pycef.pyx":64
+      /* "PyCef/src/pycef.pyx":48
  *             arg_list.append(v2.get_int())
  *         if v2.is_bool():
  *             arg_list.append(v2.get_bool())             # <<<<<<<<<<<<<<
  *         if v2.is_string():
  *             arg_list.append(bytes.decode(v2.get_string(), "utf-8"))
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_bool); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 64, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_bool); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       __pyx_t_7 = 0;
@@ -3852,14 +3852,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
         PyObject *__pyx_callargs[1] = {__pyx_t_6, };
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 64, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 48, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 64, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 48, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "PyCef/src/pycef.pyx":63
+      /* "PyCef/src/pycef.pyx":47
  *         if v2.is_int():
  *             arg_list.append(v2.get_int())
  *         if v2.is_bool():             # <<<<<<<<<<<<<<
@@ -3868,14 +3868,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
  */
     }
 
-    /* "PyCef/src/pycef.pyx":65
+    /* "PyCef/src/pycef.pyx":49
  *         if v2.is_bool():
  *             arg_list.append(v2.get_bool())
  *         if v2.is_string():             # <<<<<<<<<<<<<<
  *             arg_list.append(bytes.decode(v2.get_string(), "utf-8"))
  *         if v2.is_double():
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_string); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 65, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_string); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     __pyx_t_7 = 0;
@@ -3893,24 +3893,24 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
       PyObject *__pyx_callargs[1] = {__pyx_t_6, };
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 65, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 65, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 49, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "PyCef/src/pycef.pyx":66
+      /* "PyCef/src/pycef.pyx":50
  *             arg_list.append(v2.get_bool())
  *         if v2.is_string():
  *             arg_list.append(bytes.decode(v2.get_string(), "utf-8"))             # <<<<<<<<<<<<<<
  *         if v2.is_double():
  *             arg_list.append(v2.get_double())
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)(&PyBytes_Type)), __pyx_n_s_decode); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 66, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)(&PyBytes_Type)), __pyx_n_s_decode); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_string); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 66, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_string); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __pyx_t_11 = NULL;
       __pyx_t_7 = 0;
@@ -3928,7 +3928,7 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
         PyObject *__pyx_callargs[1] = {__pyx_t_11, };
         __pyx_t_6 = __Pyx_PyObject_FastCall(__pyx_t_10, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
-        if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 66, __pyx_L1_error)
+        if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 50, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       }
@@ -3949,14 +3949,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 2+__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
         __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 66, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 50, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 66, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 50, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "PyCef/src/pycef.pyx":65
+      /* "PyCef/src/pycef.pyx":49
  *         if v2.is_bool():
  *             arg_list.append(v2.get_bool())
  *         if v2.is_string():             # <<<<<<<<<<<<<<
@@ -3965,14 +3965,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
  */
     }
 
-    /* "PyCef/src/pycef.pyx":67
+    /* "PyCef/src/pycef.pyx":51
  *         if v2.is_string():
  *             arg_list.append(bytes.decode(v2.get_string(), "utf-8"))
  *         if v2.is_double():             # <<<<<<<<<<<<<<
  *             arg_list.append(v2.get_double())
  *         fargs += 1
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_double); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 67, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_is_double); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 51, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     __pyx_t_7 = 0;
@@ -3990,22 +3990,22 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
       PyObject *__pyx_callargs[1] = {__pyx_t_6, };
       __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 67, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 51, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
-    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 67, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_8 < 0))) __PYX_ERR(1, 51, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_8) {
 
-      /* "PyCef/src/pycef.pyx":68
+      /* "PyCef/src/pycef.pyx":52
  *             arg_list.append(bytes.decode(v2.get_string(), "utf-8"))
  *         if v2.is_double():
  *             arg_list.append(v2.get_double())             # <<<<<<<<<<<<<<
  *         fargs += 1
  * 
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_double); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 68, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_v2), __pyx_n_s_get_double); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 52, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       __pyx_t_7 = 0;
@@ -4023,14 +4023,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
         PyObject *__pyx_callargs[1] = {__pyx_t_6, };
         __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_7, 0+__pyx_t_7);
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 68, __pyx_L1_error)
+        if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 52, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       }
-      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 68, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyList_Append(__pyx_v_arg_list, __pyx_t_1); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(1, 52, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "PyCef/src/pycef.pyx":67
+      /* "PyCef/src/pycef.pyx":51
  *         if v2.is_string():
  *             arg_list.append(bytes.decode(v2.get_string(), "utf-8"))
  *         if v2.is_double():             # <<<<<<<<<<<<<<
@@ -4039,7 +4039,7 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
  */
     }
 
-    /* "PyCef/src/pycef.pyx":69
+    /* "PyCef/src/pycef.pyx":53
  *         if v2.is_double():
  *             arg_list.append(v2.get_double())
  *         fargs += 1             # <<<<<<<<<<<<<<
@@ -4049,7 +4049,7 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
     __pyx_v_fargs = (__pyx_v_fargs + 1);
   }
 
-  /* "PyCef/src/pycef.pyx":71
+  /* "PyCef/src/pycef.pyx":55
  *         fargs += 1
  * 
  *     (<object>f)(arg_list)             # <<<<<<<<<<<<<<
@@ -4073,14 +4073,14 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
     PyObject *__pyx_callargs[2] = {__pyx_t_6, __pyx_v_arg_list};
     __pyx_t_1 = __Pyx_PyObject_FastCall(__pyx_t_5, __pyx_callargs+1-__pyx_t_2, 1+__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 71, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 55, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "PyCef/src/pycef.pyx":54
- * #    (<object>f)(arg_list)
+  /* "PyCef/src/pycef.pyx":38
+ * 
  * 
  * cdef inline void callback( void *f, int size, CefValueWrapper* args):             # <<<<<<<<<<<<<<
  *     cdef CefValueWrapper* fargs = args
@@ -4102,7 +4102,7 @@ static CYTHON_INLINE void __pyx_f_5PyCef_3src_callback(void *__pyx_v_f, int __py
   __Pyx_RefNannyFinishContext();
 }
 
-/* "PyCef/src/pycef.pyx":76
+/* "PyCef/src/pycef.pyx":60
  *     cdef CefWrapper cef_simple_wrapper;
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -4137,7 +4137,7 @@ static int __pyx_pf_5PyCef_3src_5PyCef___init__(struct __pyx_obj_5PyCef_3src_PyC
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "PyCef/src/pycef.pyx":77
+  /* "PyCef/src/pycef.pyx":61
  * 
  *     def __init__(self):
  *         self.cef_simple_wrapper = CefWrapper()             # <<<<<<<<<<<<<<
@@ -4148,11 +4148,11 @@ static int __pyx_pf_5PyCef_3src_5PyCef___init__(struct __pyx_obj_5PyCef_3src_PyC
     __pyx_t_1 = CefWrapper();
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(1, 77, __pyx_L1_error)
+    __PYX_ERR(1, 61, __pyx_L1_error)
   }
   __pyx_v_self->cef_simple_wrapper = __PYX_STD_MOVE_IF_SUPPORTED(__pyx_t_1);
 
-  /* "PyCef/src/pycef.pyx":76
+  /* "PyCef/src/pycef.pyx":60
  *     cdef CefWrapper cef_simple_wrapper;
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -4171,7 +4171,7 @@ static int __pyx_pf_5PyCef_3src_5PyCef___init__(struct __pyx_obj_5PyCef_3src_PyC
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":79
+/* "PyCef/src/pycef.pyx":63
  *         self.cef_simple_wrapper = CefWrapper()
  * 
  *     def init_cef(self, start_url: str):             # <<<<<<<<<<<<<<
@@ -4225,12 +4225,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       switch (__pyx_nargs) {
         case  0:
         if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_start_url)) != 0)) kw_args--;
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 79, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 63, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "init_cef") < 0)) __PYX_ERR(1, 79, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "init_cef") < 0)) __PYX_ERR(1, 63, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4241,13 +4241,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("init_cef", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 79, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("init_cef", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 63, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("PyCef.src.PyCef.init_cef", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_start_url), (&PyUnicode_Type), 0, "start_url", 1))) __PYX_ERR(1, 79, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_start_url), (&PyUnicode_Type), 0, "start_url", 1))) __PYX_ERR(1, 63, __pyx_L1_error)
   __pyx_r = __pyx_pf_5PyCef_3src_5PyCef_2init_cef(((struct __pyx_obj_5PyCef_3src_PyCef *)__pyx_v_self), __pyx_v_start_url);
 
   /* function exit code */
@@ -4269,20 +4269,20 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_2init_cef(struct __pyx_obj_5PyCef_3
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("init_cef", 0);
 
-  /* "PyCef/src/pycef.pyx":80
+  /* "PyCef/src/pycef.pyx":64
  * 
  *     def init_cef(self, start_url: str):
  *         self.cef_simple_wrapper.InitCefSimple(start_url.encode("utf-8"))             # <<<<<<<<<<<<<<
  * 
  *     def execute_javascript(self, code: str):
  */
-  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_start_url); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 80, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_start_url); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 64, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 80, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 64, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->cef_simple_wrapper.InitCefSimple(__PYX_STD_MOVE_IF_SUPPORTED(__pyx_t_2));
 
-  /* "PyCef/src/pycef.pyx":79
+  /* "PyCef/src/pycef.pyx":63
  *         self.cef_simple_wrapper = CefWrapper()
  * 
  *     def init_cef(self, start_url: str):             # <<<<<<<<<<<<<<
@@ -4303,7 +4303,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_2init_cef(struct __pyx_obj_5PyCef_3
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":82
+/* "PyCef/src/pycef.pyx":66
  *         self.cef_simple_wrapper.InitCefSimple(start_url.encode("utf-8"))
  * 
  *     def execute_javascript(self, code: str):             # <<<<<<<<<<<<<<
@@ -4357,12 +4357,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       switch (__pyx_nargs) {
         case  0:
         if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_code)) != 0)) kw_args--;
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 82, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 66, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "execute_javascript") < 0)) __PYX_ERR(1, 82, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "execute_javascript") < 0)) __PYX_ERR(1, 66, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4373,13 +4373,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("execute_javascript", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 82, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("execute_javascript", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 66, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("PyCef.src.PyCef.execute_javascript", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyUnicode_Type), 0, "code", 1))) __PYX_ERR(1, 82, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_code), (&PyUnicode_Type), 0, "code", 1))) __PYX_ERR(1, 66, __pyx_L1_error)
   __pyx_r = __pyx_pf_5PyCef_3src_5PyCef_4execute_javascript(((struct __pyx_obj_5PyCef_3src_PyCef *)__pyx_v_self), __pyx_v_code);
 
   /* function exit code */
@@ -4401,20 +4401,20 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_4execute_javascript(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("execute_javascript", 0);
 
-  /* "PyCef/src/pycef.pyx":83
+  /* "PyCef/src/pycef.pyx":67
  * 
  *     def execute_javascript(self, code: str):
  *         self.cef_simple_wrapper.ExecuteJavascript(code.encode("utf-8"))             # <<<<<<<<<<<<<<
  * 
  *    #def add_native_api_function(self, name, func: js_binding_function_ptr):
  */
-  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_code); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 83, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_code); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 67, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 83, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 67, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->cef_simple_wrapper.ExecuteJavascript(__PYX_STD_MOVE_IF_SUPPORTED(__pyx_t_2));
 
-  /* "PyCef/src/pycef.pyx":82
+  /* "PyCef/src/pycef.pyx":66
  *         self.cef_simple_wrapper.InitCefSimple(start_url.encode("utf-8"))
  * 
  *     def execute_javascript(self, code: str):             # <<<<<<<<<<<<<<
@@ -4435,7 +4435,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_4execute_javascript(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":88
+/* "PyCef/src/pycef.pyx":72
  *    #   self.cef_simple_wrapper.AddJavascriptBinding(name, func)
  * 
  *     def add_javascript_python_binding(self, name: str, func):             # <<<<<<<<<<<<<<
@@ -4492,19 +4492,19 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       switch (__pyx_nargs) {
         case  0:
         if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_name)) != 0)) kw_args--;
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 88, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 72, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
         if (likely((values[1] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_func)) != 0)) kw_args--;
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 88, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 72, __pyx_L3_error)
         else {
-          __Pyx_RaiseArgtupleInvalid("add_javascript_python_binding", 1, 2, 2, 1); __PYX_ERR(1, 88, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_javascript_python_binding", 1, 2, 2, 1); __PYX_ERR(1, 72, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "add_javascript_python_binding") < 0)) __PYX_ERR(1, 88, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "add_javascript_python_binding") < 0)) __PYX_ERR(1, 72, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
@@ -4517,13 +4517,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_javascript_python_binding", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 88, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_javascript_python_binding", 1, 2, 2, __pyx_nargs); __PYX_ERR(1, 72, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("PyCef.src.PyCef.add_javascript_python_binding", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 1))) __PYX_ERR(1, 88, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 0, "name", 1))) __PYX_ERR(1, 72, __pyx_L1_error)
   __pyx_r = __pyx_pf_5PyCef_3src_5PyCef_6add_javascript_python_binding(((struct __pyx_obj_5PyCef_3src_PyCef *)__pyx_v_self), __pyx_v_name, __pyx_v_func);
 
   /* function exit code */
@@ -4545,20 +4545,20 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_6add_javascript_python_binding(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_javascript_python_binding", 0);
 
-  /* "PyCef/src/pycef.pyx":89
+  /* "PyCef/src/pycef.pyx":73
  * 
  *     def add_javascript_python_binding(self, name: str, func):
  *        self.cef_simple_wrapper.AddJavascriptPythonBinding(name.encode("utf-8"), callback,<void *>func)             # <<<<<<<<<<<<<<
  * 
  *     def shutdown_cef(self):
  */
-  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 89, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 89, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 73, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->cef_simple_wrapper.AddJavascriptPythonBinding(__PYX_STD_MOVE_IF_SUPPORTED(__pyx_t_2), __pyx_f_5PyCef_3src_callback, ((void *)__pyx_v_func));
 
-  /* "PyCef/src/pycef.pyx":88
+  /* "PyCef/src/pycef.pyx":72
  *    #   self.cef_simple_wrapper.AddJavascriptBinding(name, func)
  * 
  *     def add_javascript_python_binding(self, name: str, func):             # <<<<<<<<<<<<<<
@@ -4579,7 +4579,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_6add_javascript_python_binding(stru
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":91
+/* "PyCef/src/pycef.pyx":75
  *        self.cef_simple_wrapper.AddJavascriptPythonBinding(name.encode("utf-8"), callback,<void *>func)
  * 
  *     def shutdown_cef(self):             # <<<<<<<<<<<<<<
@@ -4625,7 +4625,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_8shutdown_cef(struct __pyx_obj_5PyC
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("shutdown_cef", 0);
 
-  /* "PyCef/src/pycef.pyx":92
+  /* "PyCef/src/pycef.pyx":76
  * 
  *     def shutdown_cef(self):
  *         self.cef_simple_wrapper.ShutdownCefSimple()             # <<<<<<<<<<<<<<
@@ -4634,7 +4634,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_8shutdown_cef(struct __pyx_obj_5PyC
  */
   __pyx_v_self->cef_simple_wrapper.ShutdownCefSimple();
 
-  /* "PyCef/src/pycef.pyx":91
+  /* "PyCef/src/pycef.pyx":75
  *        self.cef_simple_wrapper.AddJavascriptPythonBinding(name.encode("utf-8"), callback,<void *>func)
  * 
  *     def shutdown_cef(self):             # <<<<<<<<<<<<<<
@@ -4649,7 +4649,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_8shutdown_cef(struct __pyx_obj_5PyC
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":94
+/* "PyCef/src/pycef.pyx":78
  *         self.cef_simple_wrapper.ShutdownCefSimple()
  * 
  *     def is_running(self):             # <<<<<<<<<<<<<<
@@ -4699,7 +4699,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_10is_running(struct __pyx_obj_5PyCe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("is_running", 0);
 
-  /* "PyCef/src/pycef.pyx":95
+  /* "PyCef/src/pycef.pyx":79
  * 
  *     def is_running(self):
  *         return self.cef_simple_wrapper.IsRunning()             # <<<<<<<<<<<<<<
@@ -4707,13 +4707,13 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_10is_running(struct __pyx_obj_5PyCe
  *     def do_cef_message_loop_work(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->cef_simple_wrapper.IsRunning()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 95, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->cef_simple_wrapper.IsRunning()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "PyCef/src/pycef.pyx":94
+  /* "PyCef/src/pycef.pyx":78
  *         self.cef_simple_wrapper.ShutdownCefSimple()
  * 
  *     def is_running(self):             # <<<<<<<<<<<<<<
@@ -4732,7 +4732,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_10is_running(struct __pyx_obj_5PyCe
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":97
+/* "PyCef/src/pycef.pyx":81
  *         return self.cef_simple_wrapper.IsRunning()
  * 
  *     def do_cef_message_loop_work(self):             # <<<<<<<<<<<<<<
@@ -4782,7 +4782,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_12do_cef_message_loop_work(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("do_cef_message_loop_work", 0);
 
-  /* "PyCef/src/pycef.pyx":98
+  /* "PyCef/src/pycef.pyx":82
  * 
  *     def do_cef_message_loop_work(self):
  *         return self.cef_simple_wrapper.DoCefMessageLoopWork()             # <<<<<<<<<<<<<<
@@ -4790,13 +4790,13 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_12do_cef_message_loop_work(struct _
  *     def set_cefsub_path(self, path: str):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->cef_simple_wrapper.DoCefMessageLoopWork()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 98, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_void_to_None(__pyx_v_self->cef_simple_wrapper.DoCefMessageLoopWork()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "PyCef/src/pycef.pyx":97
+  /* "PyCef/src/pycef.pyx":81
  *         return self.cef_simple_wrapper.IsRunning()
  * 
  *     def do_cef_message_loop_work(self):             # <<<<<<<<<<<<<<
@@ -4815,7 +4815,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_12do_cef_message_loop_work(struct _
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":100
+/* "PyCef/src/pycef.pyx":84
  *         return self.cef_simple_wrapper.DoCefMessageLoopWork()
  * 
  *     def set_cefsub_path(self, path: str):             # <<<<<<<<<<<<<<
@@ -4869,12 +4869,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       switch (__pyx_nargs) {
         case  0:
         if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_path)) != 0)) kw_args--;
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 100, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 84, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "set_cefsub_path") < 0)) __PYX_ERR(1, 100, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "set_cefsub_path") < 0)) __PYX_ERR(1, 84, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -4885,13 +4885,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("set_cefsub_path", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 100, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("set_cefsub_path", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 84, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("PyCef.src.PyCef.set_cefsub_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 1))) __PYX_ERR(1, 100, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 1))) __PYX_ERR(1, 84, __pyx_L1_error)
   __pyx_r = __pyx_pf_5PyCef_3src_5PyCef_14set_cefsub_path(((struct __pyx_obj_5PyCef_3src_PyCef *)__pyx_v_self), __pyx_v_path);
 
   /* function exit code */
@@ -4913,20 +4913,20 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_14set_cefsub_path(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_cefsub_path", 0);
 
-  /* "PyCef/src/pycef.pyx":101
+  /* "PyCef/src/pycef.pyx":85
  * 
  *     def set_cefsub_path(self, path: str):
  *         self.cef_simple_wrapper.SetCustomCefSubprocessPath(path.encode("utf-8"))             # <<<<<<<<<<<<<<
  * 
  *     def set_cef_cache_path(self, path: str):
  */
-  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 101, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 101, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 85, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->cef_simple_wrapper.SetCustomCefSubprocessPath(__PYX_STD_MOVE_IF_SUPPORTED(__pyx_t_2));
 
-  /* "PyCef/src/pycef.pyx":100
+  /* "PyCef/src/pycef.pyx":84
  *         return self.cef_simple_wrapper.DoCefMessageLoopWork()
  * 
  *     def set_cefsub_path(self, path: str):             # <<<<<<<<<<<<<<
@@ -4947,7 +4947,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_14set_cefsub_path(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":103
+/* "PyCef/src/pycef.pyx":87
  *         self.cef_simple_wrapper.SetCustomCefSubprocessPath(path.encode("utf-8"))
  * 
  *     def set_cef_cache_path(self, path: str):             # <<<<<<<<<<<<<<
@@ -5001,12 +5001,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       switch (__pyx_nargs) {
         case  0:
         if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_path)) != 0)) kw_args--;
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 103, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 87, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "set_cef_cache_path") < 0)) __PYX_ERR(1, 103, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "set_cef_cache_path") < 0)) __PYX_ERR(1, 87, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5017,13 +5017,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("set_cef_cache_path", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 103, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("set_cef_cache_path", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 87, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("PyCef.src.PyCef.set_cef_cache_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 1))) __PYX_ERR(1, 103, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_path), (&PyUnicode_Type), 0, "path", 1))) __PYX_ERR(1, 87, __pyx_L1_error)
   __pyx_r = __pyx_pf_5PyCef_3src_5PyCef_16set_cef_cache_path(((struct __pyx_obj_5PyCef_3src_PyCef *)__pyx_v_self), __pyx_v_path);
 
   /* function exit code */
@@ -5045,20 +5045,20 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_16set_cef_cache_path(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("set_cef_cache_path", 0);
 
-  /* "PyCef/src/pycef.pyx":104
+  /* "PyCef/src/pycef.pyx":88
  * 
  *     def set_cef_cache_path(self, path: str):
  *         self.cef_simple_wrapper.SetCustomCefCachePath(path.encode("utf-8"))             # <<<<<<<<<<<<<<
  * 
  *     def load_url(self, url: str):
  */
-  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 104, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_path); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 104, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 88, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->cef_simple_wrapper.SetCustomCefCachePath(__PYX_STD_MOVE_IF_SUPPORTED(__pyx_t_2));
 
-  /* "PyCef/src/pycef.pyx":103
+  /* "PyCef/src/pycef.pyx":87
  *         self.cef_simple_wrapper.SetCustomCefSubprocessPath(path.encode("utf-8"))
  * 
  *     def set_cef_cache_path(self, path: str):             # <<<<<<<<<<<<<<
@@ -5079,7 +5079,7 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_16set_cef_cache_path(struct __pyx_o
   return __pyx_r;
 }
 
-/* "PyCef/src/pycef.pyx":106
+/* "PyCef/src/pycef.pyx":90
  *         self.cef_simple_wrapper.SetCustomCefCachePath(path.encode("utf-8"))
  * 
  *     def load_url(self, url: str):             # <<<<<<<<<<<<<<
@@ -5133,12 +5133,12 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       switch (__pyx_nargs) {
         case  0:
         if (likely((values[0] = __Pyx_GetKwValue_FASTCALL(__pyx_kwds, __pyx_kwvalues, __pyx_n_s_url)) != 0)) kw_args--;
-        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 106, __pyx_L3_error)
+        else if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 90, __pyx_L3_error)
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
         const Py_ssize_t kwd_pos_args = __pyx_nargs;
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "load_url") < 0)) __PYX_ERR(1, 106, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values + 0, kwd_pos_args, "load_url") < 0)) __PYX_ERR(1, 90, __pyx_L3_error)
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
@@ -5149,13 +5149,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("load_url", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 106, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("load_url", 1, 1, 1, __pyx_nargs); __PYX_ERR(1, 90, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("PyCef.src.PyCef.load_url", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 1))) __PYX_ERR(1, 106, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_url), (&PyUnicode_Type), 0, "url", 1))) __PYX_ERR(1, 90, __pyx_L1_error)
   __pyx_r = __pyx_pf_5PyCef_3src_5PyCef_18load_url(((struct __pyx_obj_5PyCef_3src_PyCef *)__pyx_v_self), __pyx_v_url);
 
   /* function exit code */
@@ -5177,19 +5177,19 @@ static PyObject *__pyx_pf_5PyCef_3src_5PyCef_18load_url(struct __pyx_obj_5PyCef_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_url", 0);
 
-  /* "PyCef/src/pycef.pyx":107
+  /* "PyCef/src/pycef.pyx":91
  * 
  *     def load_url(self, url: str):
  *         self.cef_simple_wrapper.LoadUrl(url.encode("utf-8"))             # <<<<<<<<<<<<<<
  * 
  */
-  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_url); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 107, __pyx_L1_error)
+  __pyx_t_1 = PyUnicode_AsUTF8String(__pyx_v_url); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 107, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_string_from_py_std__in_string(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 91, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_self->cef_simple_wrapper.LoadUrl(__PYX_STD_MOVE_IF_SUPPORTED(__pyx_t_2));
 
-  /* "PyCef/src/pycef.pyx":106
+  /* "PyCef/src/pycef.pyx":90
  *         self.cef_simple_wrapper.SetCustomCefCachePath(path.encode("utf-8"))
  * 
  *     def load_url(self, url: str):             # <<<<<<<<<<<<<<
@@ -6172,7 +6172,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
 /* #### Code section: cached_builtins ### */
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 2, __pyx_L1_error)
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 58, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 42, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -6276,101 +6276,101 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__11);
   __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 3, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 3, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":79
+  /* "PyCef/src/pycef.pyx":63
  *         self.cef_simple_wrapper = CefWrapper()
  * 
  *     def init_cef(self, start_url: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.InitCefSimple(start_url.encode("utf-8"))
  * 
  */
-  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_start_url); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(1, 79, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_start_url); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(1, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
-  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_init_cef, 79, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(1, 79, __pyx_L1_error)
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_init_cef, 63, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(1, 63, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":82
+  /* "PyCef/src/pycef.pyx":66
  *         self.cef_simple_wrapper.InitCefSimple(start_url.encode("utf-8"))
  * 
  *     def execute_javascript(self, code: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.ExecuteJavascript(code.encode("utf-8"))
  * 
  */
-  __pyx_tuple__15 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_code); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(1, 82, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_code); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(1, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
-  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_execute_javascript, 82, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(1, 82, __pyx_L1_error)
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_execute_javascript, 66, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(1, 66, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":88
+  /* "PyCef/src/pycef.pyx":72
  *    #   self.cef_simple_wrapper.AddJavascriptBinding(name, func)
  * 
  *     def add_javascript_python_binding(self, name: str, func):             # <<<<<<<<<<<<<<
  *        self.cef_simple_wrapper.AddJavascriptPythonBinding(name.encode("utf-8"), callback,<void *>func)
  * 
  */
-  __pyx_tuple__17 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_func); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(1, 88, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_func); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(1, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
-  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_add_javascript_python_binding, 88, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(1, 88, __pyx_L1_error)
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(3, 0, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_add_javascript_python_binding, 72, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(1, 72, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":91
+  /* "PyCef/src/pycef.pyx":75
  *        self.cef_simple_wrapper.AddJavascriptPythonBinding(name.encode("utf-8"), callback,<void *>func)
  * 
  *     def shutdown_cef(self):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.ShutdownCefSimple()
  * 
  */
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_shutdown_cef, 91, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(1, 91, __pyx_L1_error)
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_shutdown_cef, 75, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(1, 75, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":94
+  /* "PyCef/src/pycef.pyx":78
  *         self.cef_simple_wrapper.ShutdownCefSimple()
  * 
  *     def is_running(self):             # <<<<<<<<<<<<<<
  *         return self.cef_simple_wrapper.IsRunning()
  * 
  */
-  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_is_running, 94, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(1, 94, __pyx_L1_error)
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_is_running, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(1, 78, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":97
+  /* "PyCef/src/pycef.pyx":81
  *         return self.cef_simple_wrapper.IsRunning()
  * 
  *     def do_cef_message_loop_work(self):             # <<<<<<<<<<<<<<
  *         return self.cef_simple_wrapper.DoCefMessageLoopWork()
  * 
  */
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_do_cef_message_loop_work, 97, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(1, 97, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(1, 0, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_do_cef_message_loop_work, 81, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(1, 81, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":100
+  /* "PyCef/src/pycef.pyx":84
  *         return self.cef_simple_wrapper.DoCefMessageLoopWork()
  * 
  *     def set_cefsub_path(self, path: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.SetCustomCefSubprocessPath(path.encode("utf-8"))
  * 
  */
-  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_path); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(1, 100, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_path); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(1, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_set_cefsub_path, 100, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(1, 100, __pyx_L1_error)
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_set_cefsub_path, 84, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(1, 84, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":103
+  /* "PyCef/src/pycef.pyx":87
  *         self.cef_simple_wrapper.SetCustomCefSubprocessPath(path.encode("utf-8"))
  * 
  *     def set_cef_cache_path(self, path: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.SetCustomCefCachePath(path.encode("utf-8"))
  * 
  */
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_set_cef_cache_path, 103, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(1, 103, __pyx_L1_error)
+  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_set_cef_cache_path, 87, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(1, 87, __pyx_L1_error)
 
-  /* "PyCef/src/pycef.pyx":106
+  /* "PyCef/src/pycef.pyx":90
  *         self.cef_simple_wrapper.SetCustomCefCachePath(path.encode("utf-8"))
  * 
  *     def load_url(self, url: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.LoadUrl(url.encode("utf-8"))
  * 
  */
-  __pyx_tuple__25 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_url); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(1, 106, __pyx_L1_error)
+  __pyx_tuple__25 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_url); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(1, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_load_url, 106, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(1, 106, __pyx_L1_error)
+  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(2, 0, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_PyCef_src_pycef_pyx, __pyx_n_s_load_url, 90, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(1, 90, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -6549,15 +6549,15 @@ static int __Pyx_modinit_type_init_code(void) {
   if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_5PyCef_3src_PyCefValueWrapper) < 0) __PYX_ERR(1, 7, __pyx_L1_error)
   #endif
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_5PyCef_3src_PyCef = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5PyCef_3src_PyCef_spec, NULL); if (unlikely(!__pyx_ptype_5PyCef_3src_PyCef)) __PYX_ERR(1, 73, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5PyCef_3src_PyCef_spec, __pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 73, __pyx_L1_error)
+  __pyx_ptype_5PyCef_3src_PyCef = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_5PyCef_3src_PyCef_spec, NULL); if (unlikely(!__pyx_ptype_5PyCef_3src_PyCef)) __PYX_ERR(1, 57, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_5PyCef_3src_PyCef_spec, __pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 57, __pyx_L1_error)
   #else
   __pyx_ptype_5PyCef_3src_PyCef = &__pyx_type_5PyCef_3src_PyCef;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 73, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 57, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
   __pyx_ptype_5PyCef_3src_PyCef->tp_print = 0;
@@ -6567,9 +6567,9 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_ptype_5PyCef_3src_PyCef->tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
   #endif
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyCef, (PyObject *) __pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 73, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PyCef, (PyObject *) __pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 57, __pyx_L1_error)
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 73, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_ptype_5PyCef_3src_PyCef) < 0) __PYX_ERR(1, 57, __pyx_L1_error)
   #endif
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -7004,150 +7004,150 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(0, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "PyCef/src/pycef.pyx":79
+  /* "PyCef/src/pycef.pyx":63
  *         self.cef_simple_wrapper = CefWrapper()
  * 
  *     def init_cef(self, start_url: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.InitCefSimple(start_url.encode("utf-8"))
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 79, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_start_url, __pyx_n_s_str) < 0) __PYX_ERR(1, 79, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_3init_cef, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_init_cef, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 79, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_start_url, __pyx_n_s_str) < 0) __PYX_ERR(1, 63, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_3init_cef, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_init_cef, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_init_cef, __pyx_t_3) < 0) __PYX_ERR(1, 79, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_init_cef, __pyx_t_3) < 0) __PYX_ERR(1, 63, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":82
+  /* "PyCef/src/pycef.pyx":66
  *         self.cef_simple_wrapper.InitCefSimple(start_url.encode("utf-8"))
  * 
  *     def execute_javascript(self, code: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.ExecuteJavascript(code.encode("utf-8"))
  * 
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 82, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_code, __pyx_n_s_str) < 0) __PYX_ERR(1, 82, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_5execute_javascript, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_execute_javascript, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 82, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_code, __pyx_n_s_str) < 0) __PYX_ERR(1, 66, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_5execute_javascript, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_execute_javascript, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_execute_javascript, __pyx_t_2) < 0) __PYX_ERR(1, 82, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_execute_javascript, __pyx_t_2) < 0) __PYX_ERR(1, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":88
+  /* "PyCef/src/pycef.pyx":72
  *    #   self.cef_simple_wrapper.AddJavascriptBinding(name, func)
  * 
  *     def add_javascript_python_binding(self, name: str, func):             # <<<<<<<<<<<<<<
  *        self.cef_simple_wrapper.AddJavascriptPythonBinding(name.encode("utf-8"), callback,<void *>func)
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 88, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_s_str) < 0) __PYX_ERR(1, 88, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_7add_javascript_python_binding, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_add_javascript_python_bind, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 88, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_s_str) < 0) __PYX_ERR(1, 72, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_7add_javascript_python_binding, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_add_javascript_python_bind, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_add_javascript_python_binding, __pyx_t_3) < 0) __PYX_ERR(1, 88, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_add_javascript_python_binding, __pyx_t_3) < 0) __PYX_ERR(1, 72, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":91
+  /* "PyCef/src/pycef.pyx":75
  *        self.cef_simple_wrapper.AddJavascriptPythonBinding(name.encode("utf-8"), callback,<void *>func)
  * 
  *     def shutdown_cef(self):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.ShutdownCefSimple()
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_9shutdown_cef, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_shutdown_cef, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 91, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_9shutdown_cef, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_shutdown_cef, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_shutdown_cef, __pyx_t_3) < 0) __PYX_ERR(1, 91, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_shutdown_cef, __pyx_t_3) < 0) __PYX_ERR(1, 75, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":94
+  /* "PyCef/src/pycef.pyx":78
  *         self.cef_simple_wrapper.ShutdownCefSimple()
  * 
  *     def is_running(self):             # <<<<<<<<<<<<<<
  *         return self.cef_simple_wrapper.IsRunning()
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_11is_running, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_is_running, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 94, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_11is_running, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_is_running, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_is_running, __pyx_t_3) < 0) __PYX_ERR(1, 94, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_is_running, __pyx_t_3) < 0) __PYX_ERR(1, 78, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":97
+  /* "PyCef/src/pycef.pyx":81
  *         return self.cef_simple_wrapper.IsRunning()
  * 
  *     def do_cef_message_loop_work(self):             # <<<<<<<<<<<<<<
  *         return self.cef_simple_wrapper.DoCefMessageLoopWork()
  * 
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_13do_cef_message_loop_work, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_do_cef_message_loop_work, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 97, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_13do_cef_message_loop_work, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_do_cef_message_loop_work, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 81, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_do_cef_message_loop_work, __pyx_t_3) < 0) __PYX_ERR(1, 97, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_do_cef_message_loop_work, __pyx_t_3) < 0) __PYX_ERR(1, 81, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":100
+  /* "PyCef/src/pycef.pyx":84
  *         return self.cef_simple_wrapper.DoCefMessageLoopWork()
  * 
  *     def set_cefsub_path(self, path: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.SetCustomCefSubprocessPath(path.encode("utf-8"))
  * 
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 100, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_path, __pyx_n_s_str) < 0) __PYX_ERR(1, 100, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_15set_cefsub_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_set_cefsub_path, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 100, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_path, __pyx_n_s_str) < 0) __PYX_ERR(1, 84, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_15set_cefsub_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_set_cefsub_path, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_set_cefsub_path, __pyx_t_2) < 0) __PYX_ERR(1, 100, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_set_cefsub_path, __pyx_t_2) < 0) __PYX_ERR(1, 84, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":103
+  /* "PyCef/src/pycef.pyx":87
  *         self.cef_simple_wrapper.SetCustomCefSubprocessPath(path.encode("utf-8"))
  * 
  *     def set_cef_cache_path(self, path: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.SetCustomCefCachePath(path.encode("utf-8"))
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 103, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_path, __pyx_n_s_str) < 0) __PYX_ERR(1, 103, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_17set_cef_cache_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_set_cef_cache_path, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 103, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_path, __pyx_n_s_str) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_17set_cef_cache_path, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_set_cef_cache_path, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_3, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_set_cef_cache_path, __pyx_t_3) < 0) __PYX_ERR(1, 103, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_set_cef_cache_path, __pyx_t_3) < 0) __PYX_ERR(1, 87, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 
-  /* "PyCef/src/pycef.pyx":106
+  /* "PyCef/src/pycef.pyx":90
  *         self.cef_simple_wrapper.SetCustomCefCachePath(path.encode("utf-8"))
  * 
  *     def load_url(self, url: str):             # <<<<<<<<<<<<<<
  *         self.cef_simple_wrapper.LoadUrl(url.encode("utf-8"))
  * 
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 106, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_url, __pyx_n_s_str) < 0) __PYX_ERR(1, 106, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_19load_url, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_load_url, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 106, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_url, __pyx_n_s_str) < 0) __PYX_ERR(1, 90, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5PyCef_3src_5PyCef_19load_url, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PyCef_load_url, NULL, __pyx_n_s_PyCef_src, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_3);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_load_url, __pyx_t_2) < 0) __PYX_ERR(1, 106, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5PyCef_3src_PyCef->tp_dict, __pyx_n_s_load_url, __pyx_t_2) < 0) __PYX_ERR(1, 90, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5PyCef_3src_PyCef);
 

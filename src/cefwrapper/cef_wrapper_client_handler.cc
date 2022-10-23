@@ -333,6 +333,7 @@ bool CefWrapperClientHandler::OnProcessMessageReceived(
         m_JavascriptPythonBindings[i].CallHandler(argsSize, valueWrapper);
       }
     }
+    delete[] valueWrapper;
     return true;
   }
   return false;
